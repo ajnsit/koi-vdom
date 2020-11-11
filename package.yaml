@@ -1,0 +1,50 @@
+name:                koi-vdom
+version:             0.1.0.0
+github:              "ajnsit/koi-vdom"
+license:             Apache-2.0
+author:              "Anupam Jain"
+maintainer:          "ajnsit at googly mail"
+copyright:           "2020 Anupam Jain"
+
+extra-source-files:
+- README.md
+- CHANGELOG.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/ajnsit/koi-vdom#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- containers
+- ilist
+
+library:
+  source-dirs: src
+
+executables:
+  koi-vdom-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - koi-vdom
+
+tests:
+  koi-vdom-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - koi-vdom

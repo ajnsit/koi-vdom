@@ -1,0 +1,76 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 47d59a3817ea2e6999b0abf6ce7e03e46ed012d171af6de47e8ab3143c0c7da1
+
+name:           koi-vdom
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/ajnsit/koi-vdom#readme>
+homepage:       https://github.com/ajnsit/koi-vdom#readme
+bug-reports:    https://github.com/ajnsit/koi-vdom/issues
+author:         Anupam Jain
+maintainer:     ajnsit at googly mail
+copyright:      2020 Anupam Jain
+license:        Apache-2.0
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    CHANGELOG.md
+
+source-repository head
+  type: git
+  location: https://github.com/ajnsit/koi-vdom
+
+library
+  exposed-modules:
+      Koi.VDom.DOM
+      Koi.VDom.DOM.Prop
+      Koi.VDom.Eqq
+      Koi.VDom.HostConfig
+      Koi.VDom.Machine
+      Koi.VDom.Thunk
+      Koi.VDom.Types
+      Koi.VDom.Util
+      Main
+  other-modules:
+      Paths_koi_vdom
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+    , containers
+    , ilist
+  default-language: Haskell2010
+
+executable koi-vdom-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_koi_vdom
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , containers
+    , ilist
+    , koi-vdom
+  default-language: Haskell2010
+
+test-suite koi-vdom-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_koi_vdom
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , containers
+    , ilist
+    , koi-vdom
+  default-language: Haskell2010
